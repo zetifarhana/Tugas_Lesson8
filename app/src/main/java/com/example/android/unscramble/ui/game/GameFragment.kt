@@ -25,6 +25,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.android.unscramble.R
 import com.example.android.unscramble.databinding.GameFragmentBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 /**
  * Fragment where the game is played, contains the game logic.
@@ -104,6 +105,10 @@ class GameFragment : Fragment() {
         val tempWord = allWordsList.random().toCharArray()
         tempWord.shuffle()
         return String(tempWord)
+    }
+    private fun showFinalScoreDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(R.string.congratulations))
     }
 
     /*
